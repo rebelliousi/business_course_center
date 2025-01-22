@@ -24,19 +24,19 @@ const BannerSlider: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto  p-2  pt-10">
-      <div className="w-full px-4">
+    <div className="font-jakarta container mx-auto  p-5  pt-2 pb-5">
+      <div className="w-full  px-4">
         <Slider {...settings}>
           {data?.map((banner) => (
-            <div key={banner.id} className="relative w-full h-80 rounded-xl overflow-hidden shadow-lg">
+            <div key={banner.id} className="relative h-[250px] lg:w-full lg:h-[500px]  rounded-xl overflow-hidden shadow-lg">
               <img
                 src={banner.image}
                 alt={banner.title}
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6">
-                <h2 className="text-3xl font-bold mb-4">{banner.title}</h2>
-                <p className="text-lg">{banner.description}</p>
+                <h2 className="lg:text-3xl text-md font-bold mb-4">{banner.title}</h2>
+                <p className="lg:text-lg text-sm">{banner.description}</p>
               </div>
             </div>
           ))}

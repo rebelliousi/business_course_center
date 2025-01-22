@@ -45,5 +45,21 @@
     "verifyButton":"Tassykla",
     "enter":"Koduňyzy giriziň..."
     
-    }
+    },
+    
+      "advice_section": {
+        "title": "Biznesi ösdürmek maslahatlary",
+        "description": "Biznesiňizi ösdürmäge we has uly üstünliklere ýetmäge kömek etmek üçin ýöriteleşdirilen maslahatlar.",
+        "left_1": "Bazar barlagyny geçiriň",
+        "left_2": "Toparda işlemäge üns beriň",
+        "left_3": "Sanly marketinge  üns beriň",
+        "right_1": "Müşderi gatnaşyklaryny gelişdiriň",
+        "right_2": "Innowasion boluň",
+        "right_3": "Güýçli marka guryň"
+      },
+      "pagination": {
+        "next": "öňe",
+        "prev": "yza"
+      }
+    
 }

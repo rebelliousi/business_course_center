@@ -27,7 +27,7 @@ const NewsDetailPage: React.FC = () => {
     }
 
     return (
-        <div className="container mx-auto mt-8 p-4 md:p-8 min-h-screen">
+        <div className="font-jakarta container mx-auto mt-8 p-4 md:p-8 min-h-screen">
             <div className="bg-white rounded-lg shadow-xl overflow-hidden">
                 <div className="relative">
                     {/* Haber Resmi */}

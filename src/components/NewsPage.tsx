@@ -27,7 +27,7 @@ const NewsPage: React.FC = () => {
   return (
     <div
       id="newspage"
-      className="container mx-auto py-5 text-center mb-7 sm: font-jakarta "
+      className="font-jakarta container mx-auto py-5 text-center mb-7 sm: font-jakarta "
     >
       <h2 className="font-semibold text-3xl text-[#5A6A85] text-left mb-5 mx-2">
         {t("titles.news")}

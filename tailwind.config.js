@@ -14,6 +14,7 @@ module.exports = {
       animation: {
         'spin-slow': 'spin 3s linear infinite',
       },
+      fontFamily: { jakarta: ['Plus Jakarta Sans', 'sans-serif'] },
     },
   },
   plugins: [],

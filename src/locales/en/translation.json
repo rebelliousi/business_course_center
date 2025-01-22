@@ -48,6 +48,20 @@
       "enter":"Enter your code..."
       
       
+      },
+      "advice_section":{
+        "title":"Business Growth Tips",
+        "description":"Tailored advice to help you grow your business and achieve greater success.",
+        "left_1":"Conduct Market Research",
+        "left_2":"Value Teamwork",
+        "left_3":"Prioritize Digital Marketing",
+        "right_1":"Enhance Customer Relations",
+        "right_2":"Be Innovative",
+        "right_3":"Build a strong brand"
+      },
+      "pagination":{
+        "next":"next",
+        "prev":"prev"
       }
   
   }

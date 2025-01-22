@@ -65,7 +65,7 @@ const Activity: React.FC = () => {
 
     const handleCardClick = (card: Card) => {
         setMainContent(card);
-        if (mainSliderRef.current && card.image && card.image.length > 0) {
+        if (mainSliderRef.current && card.images && card.images.length > 0) {
             mainSliderRef.current.slickGoTo(0);
         }
     };
@@ -77,7 +77,7 @@ const Activity: React.FC = () => {
    const displayedCards = activityData.slice(0, 8);
   
     return (
-        <div className="container mx-auto mb-10 p-8" id='activity'>
+        <div className="container mx-auto mb-10 p-8 font-jakarta" id='activity'>
             <div className='flex items-center justify-between pb-3'>
                 <h2 className="font-semibold  text-xl lg:text-3xl text-black font-jakarta">
                 {t("titles.activity")}
@@ -88,7 +88,7 @@ const Activity: React.FC = () => {
                 <div className="md:flex md:flex-row gap-4 mb-8">
                     <div className="md:w-1/2 relative">
                         <Slider {...sliderSettings} ref={mainSliderRef}>
-                        {mainContent?.image?.map((imageData, index) => (
+                        {mainContent?.images?.map((imageData, index) => (
                                     <div key={index}>
                                         <img src={imageData.image} alt={`Main Activity ${index + 1}`} className="w-full rounded-lg object-cover h-96 sm:h-[500px] md:h-96" />
                                     </div>
@@ -122,7 +122,7 @@ const Activity: React.FC = () => {
                             >
                                 <div className="rounded-lg shadow-md overflow-hidden">
                                     <Slider {...cardImageSettings}>
-                                    {card.image?.map((imageData, imageIndex) => (
+                                    {card.images?.map((imageData, imageIndex) => (
                                         <div key={imageIndex} className="rounded-lg overflow-hidden">
                                             <img
                                                 src={imageData.image}

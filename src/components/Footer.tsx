@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/img/kurs merkez ak yazgy.png"
 import {
   AiOutlineLink,
   AiFillMail,
@@ -26,14 +27,14 @@ const Footer: React.FC = () => {
   return (
       <motion.footer
           id="contact"
-          className="relative bg-gradient-to-r from-blue-800 to-indigo-900 text-white py-12 mt-16 font-jakarta w-full h-auto mx-auto overflow-hidden"
+          className="font-jakarta relative bg-gradient-to-r from-blue-800 to-indigo-900 text-white py-12 mt-16 font-jakarta w-full h-auto mx-auto overflow-hidden"
           initial={{opacity:0}}
           animate={{opacity:1}}
       >
           <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 p-5 justify-items-center mx-auto relative z-10">
               <div className="flex sm:flex-col md:flex-col lg:flex-row flex-row sm:items-center md:items-center items-start w-full mb-6 sm:mb-0">
                   <div className="flex sm:flex-col flex-row  sm:items-center items-start justify-start w-full sm:w-auto">
-                      logo
+                      <img src={logo} alt="" />
                       <div className="border-l-2 border-white h-20 mx-4 lg:hidden block md:hidden sm:hidden "></div>
                       <p className="sm:mt-4 mt-0  text-white font-jakarta text-center flex items-center  sm:text-left text-[12px]">
                           Your trusted partner in delivering quality services.

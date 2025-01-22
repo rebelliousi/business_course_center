@@ -1,5 +1,5 @@
 export interface Card {
-  image :imageData[]
+  images :imageData[]
   title: string;
   description: string;
   date: string;
@@ -7,7 +7,6 @@ export interface Card {
 }
 interface imageData{
   image:string
- 
 }
 
 
@@ -15,13 +14,3 @@ interface imageData{
 
 
 
-/*export interface SmallCard {
-    images: string[];
-    title: string;
-    description: string;
-    date: string;
-  }
-  
-  export interface ActivityType {
-    small_carts: SmallCard[];
-  }*/

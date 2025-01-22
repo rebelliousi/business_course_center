@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import { HashLink } from "react-router-hash-link";
-import logo from "../assets/img/YAZGY.png";
+import logo from "../assets/img/kurs merkez yazgy.png";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
 
@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="bg-white text-black w-full h-[50px] mx-auto mb-[20px]">
+    <nav className="font-jakarta bg-white text-black w-full h-[50px] mx-auto mb-[20px]">
       <div className="container flex justify-between items-center py-4 px-6 mx-auto font-jakarta">
         {/* Logo */}
         <HashLink to="/" className="text-2xl font-bold">
