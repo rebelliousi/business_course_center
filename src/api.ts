@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const api=axios.create({
-    baseURL:'http://bilim.pythonanywhere.com/api/v1/school/' 
+    baseURL:'http://45.10.43.72/api/v1/school/' 
 })
 
 
