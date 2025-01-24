@@ -8,8 +8,6 @@ import { useActivity } from '../Hooks/useActivity';
 import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 
-
-
 const Activity: React.FC = () => {
     const { t } = useTranslation();
     const { data: activityData } = useActivity();
@@ -19,13 +17,12 @@ const Activity: React.FC = () => {
 
     useEffect(() => {
         if (activityData && activityData.length > 0) {
-          
             setMainContent(activityData[0]);
         }
     }, [activityData]);
 
     const sliderSettings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -34,19 +31,18 @@ const Activity: React.FC = () => {
         autoplaySpeed: 3000,
     };
 
-    const cardSettings = {
+     const cardSettings = {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 4, // Mobil için başlangıçta 1 göster
         slidesToScroll: 1,
         responsive: [
             { breakpoint: 1024, settings: { slidesToShow: 3 } },
             { breakpoint: 768, settings: { slidesToShow: 2 } },
-            { breakpoint: 480, settings: { slidesToShow: 1 } },
+            { breakpoint: 480, settings: { slidesToShow: 2 } },
         ],
     };
-
     const cardImageSettings = {
         dots: false,
         arrows: false,
@@ -74,13 +70,13 @@ const Activity: React.FC = () => {
         return <div></div>;
     }
 
-   const displayedCards = activityData.slice(0, 8);
-  
+    const displayedCards = activityData.slice(0, 8);
+
     return (
-        <div className="container mx-auto mb-10 p-8 font-jakarta" id='activity'>
+        <div className="container mx-auto mb-10 p-4 sm:p-8 font-jakarta" id='activity'>
             <div className='flex items-center justify-between pb-3'>
                 <h2 className="font-semibold  text-xl lg:text-3xl text-black font-jakarta">
-                {t("titles.activity")}
+                    {t("titles.activity")}
                 </h2>
                 <Link to="/all-activity" className="text-indigo-600 lg:text-[14px] text-[12px] font-normal">{t("allnews.all")}</Link>
             </div>
@@ -88,11 +84,11 @@ const Activity: React.FC = () => {
                 <div className="md:flex md:flex-row gap-4 mb-8">
                     <div className="md:w-1/2 relative">
                         <Slider {...sliderSettings} ref={mainSliderRef}>
-                        {mainContent?.images?.map((imageData, index) => (
-                                    <div key={index}>
-                                        <img src={imageData.image} alt={`Main Activity ${index + 1}`} className="w-full rounded-lg object-cover h-96 sm:h-[500px] md:h-96" />
-                                    </div>
-                                ))}
+                            {mainContent?.images?.map((imageData, index) => (
+                                <div key={index}>
+                                    <img src={imageData.image} alt={`Main Activity ${index + 1}`} className="w-full rounded-lg object-cover h-64 sm:h-96 md:h-96" />
+                                </div>
+                            ))}
                         </Slider>
                         <button onClick={goToPrevMain} className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow opacity-70 hover:opacity-100">
                             <FiChevronLeft size={20} />
@@ -111,7 +107,7 @@ const Activity: React.FC = () => {
                         )}
                     </div>
                 </div>
- 
+
                 <div className="relative">
                     <Slider {...cardSettings} ref={cardSliderRef}>
                         {displayedCards.map((card, index) => (
@@ -122,19 +118,19 @@ const Activity: React.FC = () => {
                             >
                                 <div className="rounded-lg shadow-md overflow-hidden">
                                     <Slider {...cardImageSettings}>
-                                    {card.images?.map((imageData, imageIndex) => (
-                                        <div key={imageIndex} className="rounded-lg overflow-hidden">
-                                            <img
-                                                src={imageData.image}
-                                                alt={`${card.title}  ${imageIndex + 1}`}
-                                                className="w-full rounded-t-lg object-cover h-48"
-                                            />
-                                        </div>
-                                         ))}
+                                        {card.images?.map((imageData, imageIndex) => (
+                                            <div key={imageIndex} className="rounded-lg overflow-hidden">
+                                                <img
+                                                    src={imageData.image}
+                                                    alt={`${card.title}  ${imageIndex + 1}`}
+                                                    className="w-full rounded-t-lg object-cover h-48"
+                                                />
+                                            </div>
+                                        ))}
                                     </Slider>
-                                    <div className="bg-gray-50 rounded-b-lg p-2">
-                                        <h3 className="text-[16px] lg:text-[2px] font-semibold mb-1">{card.title}</h3>
-                                        <p className="text-gray-700 mb-2 line-clamp-2 lg:text-[16px] text-[12px]">
+                                    <div className="bg-gray-50 rounded-b-lg p-2 h-[125px]">
+                                        <h3 className="text-[16px] lg:text-[20px] font-semibold mb-1">{card.title}</h3>
+                                        <p className="text-gray-700 mb-2 line-clamp-2 lg:text-[14px] text-[12px]">
                                             {card.description}
                                         </p>
                                         <p className="text-gray-500 lg:text-[12px] text-[8px]">{card.date}</p>
@@ -143,10 +139,10 @@ const Activity: React.FC = () => {
                             </div>
                         ))}
                     </Slider>
-                    <button onClick={goToPrevCard} className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow opacity-70 hover:opacity-100">
+                     <button onClick={goToPrevCard} className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow opacity-70 hover:opacity-100 hidden sm:block">
                         <FiChevronLeft size={20} />
                     </button>
-                    <button onClick={goToNextCard} className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow opacity-70 hover:opacity-100">
+                    <button onClick={goToNextCard} className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow opacity-70 hover:opacity-100 hidden sm:block">
                         <FiChevronRight size={20} />
                     </button>
                 </div>

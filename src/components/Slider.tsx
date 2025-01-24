@@ -35,8 +35,8 @@ const BannerSlider: React.FC = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6">
-                <h2 className="lg:text-3xl text-md font-bold mb-4">{banner.title}</h2>
-                <p className="lg:text-lg text-sm">{banner.description}</p>
+                <h2 className="lg:text-3xl text-center text-md font-bold mb-4">{banner.title}</h2>
+                <p className="lg:text-lg text-xs text-center">{banner.description}</p>
               </div>
             </div>
           ))}

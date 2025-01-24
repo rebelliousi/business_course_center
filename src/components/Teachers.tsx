@@ -76,7 +76,7 @@ const Teachers: React.FC = () => {
                             <img src={teacher.image} alt={`${teacher.name} ${teacher.surname}`} className="w-full h-full object-cover" />
                         </div>
                         <div className="absolute bottom-[30px] sm:bottom-[50px] left-1/2 -translate-x-1/2 w-10/12 ">
-                            <div className="bg-white rounded-lg p-4 sm:p-6 shadow-md h-[120px] sm:h-[150px]">
+                            <div className="bg-white rounded-lg p-4 sm:p-6 shadow-md h-[160px] sm:h-[160px]">
                                 <h3 className="text-base sm:text-lg font-semibold">{teacher.name} {teacher.surname}</h3>
                                 <p className="text-sm text-gray-600">{teacher.major}</p>
                                 <p className="text-xs text-gray-500 mt-1 sm:mt-2">{teacher.description}</p>

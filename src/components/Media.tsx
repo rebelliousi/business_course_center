@@ -37,7 +37,7 @@ const MediaComponent: React.FC = () => {
                 <Link to="/all-videos" className="text-indigo-600 lg:text-[14px] text-[10px] sm:text-[12px] font-normal">{t("allnews.all")}</Link>
             </div>
 
-            <div className="flex flex-col md:flex-row w-full max-w-screen-2xl mb-12 sm:mb-16">
+            <div className="flex flex-col md:flex-row w-full max-w-screen-2xl mb-4 sm:mb-4">
                 <div className="lg:w-[650px] lg:m-2 w-full mb-3 sm:mb-4 md:mb-0">
                     <div className="rounded-lg overflow-hidden">
                         <video controls className="w-full h-[200px] sm:h-[280px] md:h-[337px] lg:h-[400px] xl:h-[450px]" autoPlay={playingVideo !== null} key={mainVideoSrc}>
