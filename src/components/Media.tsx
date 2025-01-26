@@ -29,30 +29,29 @@ const MediaComponent: React.FC = () => {
     };
 
     return (
-        <div className="container mx-auto p-4 sm:p-5 font-jakarta" id="media">
-            <div className="flex item-center justify-between container pb-2 sm:pb-3">
-                <h2 className="font-semibold text-xl lg:text-3xl text-black font-jakarta">
+        <div className="container p-4 mx-auto sm:p-5 font-jakarta" id="media">
+            <div className="container flex justify-between item-center ">
+                <h2 className="text-xl font-semibold text-black lg:text-3xl font-jakarta">
                     {t("titles.media")}
                 </h2>
                 <Link to="/all-videos" className="text-indigo-600 lg:text-[14px] text-[10px] sm:text-[12px] font-normal">{t("allnews.all")}</Link>
             </div>
 
-            <div className="flex flex-col md:flex-row w-full max-w-screen-2xl mb-4 sm:mb-4">
-                
-                <div className="lg:w-[650px] lg:m-2 w-full mb-3 sm:mb-4 md:mb-0 flex flex-col"> {/*flex ve flex-col ekledik*/}
-                    <div className="rounded-lg overflow-hidden flex-grow">  {/*flex-grow ekledik*/}
-                        <video controls className="w-full h-[200px] sm:h-[280px] md:h-[337px] lg:h-[400px] xl:h-[450px]" autoPlay={playingVideo !== null} key={mainVideoSrc}>
+            <div className="flex flex-col w-full mb-4 md:flex-row md:items-start max-w-screen-2xl sm:mb-4"> {/* items-start eklendi */}
+                <div className="lg:w-[650px] lg:m-2 w-full mb-3 sm:mb-4 md:mb-0">
+                    <div className="overflow-hidden rounded-lg">
+                        <video controls className="w-full h-[200px] sm:h-[280px] md:h-[337px] lg:h-[410px] xl:h-[410px]" autoPlay={playingVideo !== null} key={mainVideoSrc}>
                             {mainVideoSrc && <source src={mainVideoSrc} type="video/mp4" />}
                             Your device doesn't support this video
                         </video>
                         <div className="p-2">
-                            <p className="text-xl sm:text-2xl font-medium">{mainVideoTitle}</p>
+                            <p className="text-xl font-medium sm:text-2xl">{mainVideoTitle}</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="md:w-[650px] lg:w-[650px] h-auto flex items-start"> {/*flex ve items-start ekledik*/}
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 w-full">
+                <div className="lg:m-2 md:w-[650px] lg:w-[650px] h-[410px] ">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
                         {videos?.slice(0, 6).map((video, index) => (
                             <div
                                 key={video.id}
@@ -63,8 +62,8 @@ const MediaComponent: React.FC = () => {
                                     <source src={video.video} type="video/mp4" />
                                     {video.title ?? "Your device doesn't support this video."}
                                 </video>
-                                <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition duration-300">
-                                    <FaPlay className="text-white text-2xl sm:text-4xl" />
+                                <div className="absolute inset-0 flex items-center justify-center transition duration-300 opacity-0 bg-black/50 hover:opacity-100">
+                                    <FaPlay className="text-2xl text-white sm:text-4xl" />
                                 </div>
                             </div>
                         ))}

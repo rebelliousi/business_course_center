@@ -61,31 +61,31 @@ const Discount: React.FC = () => {
     };
 
     return (
-        <div className="font-jakarta container mb-7 mx-auto p-5">
-            <h2 className="font-semibold text-2xl lg:text-3xl text-gray-800 font-jakarta pb-3">
+        <div className="container p-5 mx-auto font-jakarta mb-7">
+            <h2 className="pb-3 text-xl font-semibold text-black-800 lg:text-3xl font-jakarta">
                 {t("titles.discount")}
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {displayedGroups.map(([percentage, items]) => (
                     <div
                         key={percentage}
                         className={`discount-card rounded-xl bg-gradient-to-r from-blue-800 to-indigo-900 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden p-4 text-white flex flex-col ${!isDesktop && isExpanded(percentage) ? "h-auto" : ""
                             }`}
                     >
-                        <h3 className="lg:text-3xl font-bold mb-2 text-2xl">
+                        <h3 className="mb-2 text-2xl font-bold lg:text-3xl">
                             {percentage}
                         </h3>
                         {/*Conditionally render this based on whether expanded and on mobile*/}
                         {!( !isDesktop && isExpanded(percentage)) &&
-                        <p className="lg:text-sm mb-1 text-xs">
+                        <p className="mb-1 text-xs lg:text-sm">
                             {items.length > 0 ? items[0].description : "Açıklama Yok"}
                         </p>
                          }
 
 
                         {!isDesktop && isExpanded(percentage) && (
-                            <ul className="list-disc list-inside lg:text-sm text-xs text-white ml-4 mt-2">
+                            <ul className="mt-2 ml-4 text-xs text-white list-disc list-inside lg:text-sm">
                                 {items.map((discount, i) => (
                                     <li key={i} className="mb-1">{discount.description}</li>
                                 ))}
@@ -95,14 +95,14 @@ const Discount: React.FC = () => {
                         {items.length > 1 && (
                             <button
                                 onClick={() => handleMoreClick(percentage)}
-                                className="mt-2 rounded-full hover:bg-gray-100 transition-colors duration-200 p-2"
+                                className="p-2 mt-2 transition-colors duration-200 rounded-full hover:bg-gray-100"
                                 style={{ backgroundColor: 'transparent' }}
                             >
                                 {isDesktop ? (
-                                    <FaExternalLinkAlt className="text-white text-2xl" />
+                                    <FaExternalLinkAlt className="text-2xl text-white" />
                                 ) : (
                                     <IoIosArrowDown
-                                        className="text-white text-2xl"
+                                        className="text-2xl text-white"
                                         style={{
                                             transform: isExpanded(percentage) ? 'rotate(180deg)' : 'rotate(0deg)',
                                             transition: 'transform 0.2s ease-in-out'
@@ -116,9 +116,9 @@ const Discount: React.FC = () => {
             </div>
 
             {showModal && selectedPercentage && groupedData && groupedData[selectedPercentage] && (
-                <div className="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="bg-white rounded-lg p-8 max-w-md w-full">
-                        <div className="flex justify-between items-center mb-4">
+                <div className="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50">
+                    <div className="w-full max-w-md p-8 bg-white rounded-lg">
+                        <div className="flex items-center justify-between mb-4">
                             <h2 className="text-2xl font-bold">{selectedPercentage}</h2>
                             <button
                                 onClick={handleCloseModal}
@@ -127,7 +127,7 @@ const Discount: React.FC = () => {
                                 <IoMdClose className="text-3xl" />
                             </button>
                         </div>
-                        <ul className="list-disc list-inside text-sm text-gray-800 ml-4">
+                        <ul className="ml-4 text-sm text-gray-800 list-disc list-inside">
                             {groupedData[selectedPercentage].map((discount, i) => (
                                 <li key={i} className="mb-1">{discount.description}</li>
                             ))}
