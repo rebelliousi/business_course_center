@@ -38,8 +38,9 @@ const MediaComponent: React.FC = () => {
             </div>
 
             <div className="flex flex-col md:flex-row w-full max-w-screen-2xl mb-4 sm:mb-4">
-                <div className="lg:w-[650px] lg:m-2 w-full mb-3 sm:mb-4 md:mb-0">
-                    <div className="rounded-lg overflow-hidden">
+                
+                <div className="lg:w-[650px] lg:m-2 w-full mb-3 sm:mb-4 md:mb-0 flex flex-col"> {/*flex ve flex-col ekledik*/}
+                    <div className="rounded-lg overflow-hidden flex-grow">  {/*flex-grow ekledik*/}
                         <video controls className="w-full h-[200px] sm:h-[280px] md:h-[337px] lg:h-[400px] xl:h-[450px]" autoPlay={playingVideo !== null} key={mainVideoSrc}>
                             {mainVideoSrc && <source src={mainVideoSrc} type="video/mp4" />}
                             Your device doesn't support this video
@@ -50,8 +51,8 @@ const MediaComponent: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="md:w-[650px] lg:w-[650px] h-auto ">
-                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+                <div className="md:w-[650px] lg:w-[650px] h-auto flex items-start"> {/*flex ve items-start ekledik*/}
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 w-full">
                         {videos?.slice(0, 6).map((video, index) => (
                             <div
                                 key={video.id}

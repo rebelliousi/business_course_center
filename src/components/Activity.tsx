@@ -128,7 +128,7 @@ const Activity: React.FC = () => {
                                             </div>
                                         ))}
                                     </Slider>
-                                    <div className="bg-gray-50 rounded-b-lg p-2 h-[125px]">
+                                    <div className="bg-gray-50 rounded-b-lg p-2 h-[155px]">
                                         <h3 className="text-[16px] lg:text-[20px] font-semibold mb-1">{card.title}</h3>
                                         <p className="text-gray-700 mb-2 line-clamp-2 lg:text-[14px] text-[12px]">
                                             {card.description}
