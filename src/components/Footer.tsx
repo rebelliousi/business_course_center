@@ -12,10 +12,14 @@ import { FaTiktok } from "react-icons/fa";
 import PopupForm from "./PopUpForm";
 import { useTranslation } from "react-i18next";
 import { motion } from 'framer-motion';
+import { useFooter } from "../Hooks/useFooter"; 
 
 const Footer: React.FC = () => {
   const [isPopupOpen, setPopupOpen] = useState(false);
   const { t } = useTranslation();
+
+  const { data: footerDataArray } = useFooter();
+  const footerData = footerDataArray && footerDataArray.length > 0 ? footerDataArray[0] : null;
 
   const openPopup = () => {
     setPopupOpen(true);
@@ -37,7 +41,8 @@ const Footer: React.FC = () => {
                       <img src={logo} alt="" />
                       <div className="border-l-2 border-white h-20 mx-4 lg:hidden block md:hidden sm:hidden "></div>
                       <p className="sm:mt-4 mt-0  text-white font-jakarta text-center flex items-center  sm:text-left text-[12px]">
-                          Your trusted partner in delivering quality services.
+                          
+                 {t("footer.logo_under")}
                       </p>
                   </div>
               </div>
@@ -90,50 +95,54 @@ const Footer: React.FC = () => {
                   <h3 className="text-white text-[18px] font-semibold mb-4 text-left sm:text-center md:text-left">
                       {t("footer.contact")}
                   </h3>
-                  <p className="text-white text-[16px]  flex items-center gap-3 justify-start sm:justify-start md:justify-start">
-                      <AiFillMail className="text-xl " />
-                      <a
-                          href="https://www.gmail.com/yourprofile"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-gray-300 ml-1"
-                      >
-                          lorem@gmail.com
-                      </a>
-                  </p>
-                  <p className="text-white text-[16px] flex items-center gap-3 justify-start sm:justify-start md:justify-start">
-                      <AiFillPhone className="text-xl" />
-                      <a
-                          href="https://www...com/yourprofile"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-gray-300 ml-1"
-                      >
-                          +9935656565655
-                      </a>
-                  </p>
-                  <p className="text-white text-[16px] flex items-center gap-3 justify-start sm:justify-start md:justify-start">
-                      <AiFillInstagram className="text-xl" />
-                      <a
-                          href="https://www.instagram.com/yourprofile"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-gray-300 ml-1"
-                      >
-                          lorem
-                      </a>
-                  </p>
-                  <p className="text-white text-[16px] flex items-center gap-3 justify-start sm:justify-start md:justify-start">
-                      <FaTiktok className="text-xl " />
-                      <a
-                          href="https://www.tiktok.com/lorem@gmail.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-gray-300 ml-1"
-                      >
-                          lorem
-                      </a>
-                  </p>
+                  {footerData && (
+            <>
+              <p className="text-white text-[16px] flex items-center gap-3 justify-start sm:justify-start md:justify-start">
+                <AiFillMail className="text-xl " />
+                <a
+                  href={`mailto:${footerData.gmail}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-1 hover:text-gray-300"
+                >
+                  {footerData.gmail}
+                </a>
+              </p>
+              <p className="text-white text-[16px] flex items-center gap-3 justify-start sm:justify-start md:justify-start">
+                <AiFillPhone className="text-xl" />
+                <a
+                  href={`tel:${footerData.phone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-1 hover:text-gray-300"
+                >
+                  {footerData.phone}
+                </a>
+              </p>
+              <p className="text-white text-[16px] flex items-center gap-3 justify-start sm:justify-start md:justify-start">
+                <AiFillInstagram className="text-xl" />
+                <a
+                  href={footerData.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-1 hover:text-gray-300"
+                >
+                  {footerData.instagram}
+                </a>
+              </p>
+              <p className="text-white text-[16px] flex items-center gap-3 justify-start sm:justify-start md:justify-start">
+                <FaTiktok className="text-xl " />
+                <a
+                  href={footerData.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-1 hover:text-gray-300"
+                >
+                  {footerData.tiktok}
+                </a>
+              </p>
+            </>
+          )}
 
                   <p>
                       <button
